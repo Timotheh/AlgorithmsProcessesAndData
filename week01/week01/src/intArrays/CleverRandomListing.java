@@ -13,25 +13,26 @@ public class CleverRandomListing extends RandomListing
     /**
      * Constructor
      */
-    public CleverRandomListing(int size) {
+    public CleverRandomListing(int size) 
+    {
         super(size); // calls the constructer "size"
-        }
-        /**
-     * Randomise the array
-     */
+        randomise();
+    }
+     
     protected void randomise() {
         int[] copy = new int[getArray().length];
         int randomIndex;
         // used to indicate if elements have been used
         Boolean[] used = new Boolean[getArray().length];
         Arrays.fill(used,false);
-        for (int index = 0; index < getArray().length; index++) {// if the index od smaller than the total size of the array list then contiune
-        	do {
-                randomIndex = getRandomIndex(); //declares the getRandonIndex method as randomindex to be called 
-            } while (used[randomIndex]);
-            copy[index] = getArray()[randomIndex];
-            used[randomIndex] = true;
+        for (int index = 0; index < getArray().length; index++) // if the index od smaller than the total size of the array list then contiune
+        {
+        	if(index)
+        	{
+        		
+        	}
         }
+        	
         for (int index = 0; index < getArray().length; index++) {// if the index is smaller than the array then the method gets the size of the array and sets copy as the size
             getArray()[index] = copy[index];
         }
