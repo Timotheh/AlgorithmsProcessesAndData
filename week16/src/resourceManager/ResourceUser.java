@@ -84,7 +84,7 @@ public class ResourceUser extends Thread
                     int timeRequired = random.nextInt(maxTimeRequiredMillis)+1; // pick a length of time to request use of the resource for
                     System.out.println(this + " is requesting " + manager.getResourceName());
                     manager.requestResource(priority); // request the resource - the resource manager should suspend this resource user if the resource is not available
-                    System.out.println(this + " gained access to " + manager.getResourceName()); // request successfull - resource available
+                    System.out.println(this + " gained access to " + manager.getResourceName()); // request successful - resource available
                     manager.useResource(timeRequired); // use the resource
                     int newThreadsPriority = manager.releaseResource(); // release the resource - the request returns the priority of the process, if any, woken by this request
                     if (newThreadsPriority == BasicResourceManager.NONE_WAITING) {
