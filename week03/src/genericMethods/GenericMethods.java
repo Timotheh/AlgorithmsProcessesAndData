@@ -30,6 +30,6 @@ public class GenericMethods {
 	{
 		Object[] ints = {1, 2, 3, 4, 5};   //array list that is going to be swapped
 		swap(ints, 0, 3);  // defining the index number in the array that are going to be swapped
-		System.out.println(Arrays.toString(ints));		
+		System.out.println(Arrays.toString(ints));		// prints out the swapped array to be checked
 	}
 }
