@@ -21,8 +21,12 @@ public abstract class RandomListing extends SortedListing
      * @param size the size of the array to be generated
      */
     public RandomListing(int size) {
-        super(size);
+    	super(size);
+        long testStart = System.nanoTime();
         randomise();
+        long testEnd = System.nanoTime();
+        String time =  "\n" + "Test " + "took " + (testEnd-testStart)/1000 + " microseconds to complete.";
+        System.out.println(time);
     }
     
     private Random random = new Random();
