@@ -2,28 +2,41 @@ package binaryTree;
 
 public class BinaryTree<T extends Comparable<? super T>> implements BTree<T> {
 
-	@Override
-	public void insert(T value) {
-		// TODO Auto-generated method stub
-		
-	}
+    TreeNode<T> root = null;
 
-	@Override
-	public T value() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public void insert(T value) {
 
-	@Override
-	public BTree<T> left() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        if (root == null)
+        {
+            root = new TreeNode(value);
+        }
+        else if(value.compareTo(value()) < 0)
+        {
+            root.left().insert(value);
+        }
+        else
+        {
+            root.right().insert(value);
+        }
 
-	@Override
-	public BTree<T> right() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    }
 
+    @Override
+    public T value() {
+
+        return root.value();
+    }
+
+    @Override
+    public BTree<T> left() {
+
+        return root.left();
+    }
+
+    @Override
+    public BTree<T> right() {
+
+        return root.right();
+    }
 }
