@@ -7,23 +7,41 @@ import java.util.List;
 public class DepthFirstTraversal<T> extends AdjacencyGraph<T> implements Traversal<T>
 {
 
-	private List<T> traversal = new ArrayList<T>();
-	
+	private List<T> nodes, traversal = new ArrayList<T>();
+	private int nodeSize = getNodes().size();
+		
 	@Override
 	public List<T> traverse() throws GraphError 
 	{
-		T node = getUnvisitedNode();
-		while(node !=null)
+		for (int i=0; i<nodeSize; i++)
 		{
-			traverse(node);
-			node = getUnvisitedNode();
+			if(traversal.size() < nodeSize)
+			{
+				T startNode = (T) getNodes().toArray()[i];
+				if(!traversal.contains(startNode))
+				{
+					Traversal(startNode);
+				}
+			}
 		}
 		return traversal;
 	}
 	
-		void getUnvisitedNode()
+	private void Traversal(T node) throws GraphError
+	{
+		traversal.add(node);
+		nodes.add(node);
+		
+		T[] neighbours = (T[])getNeighbours(node).toArray();
+		for(int i=0;i<neighbours.length;i++)
 		{
+			if(neighbours[i]!=null&&!traversal.contains(neighbours[i]))
+			{
+				Traversal(neighbours[i]);
+			}
 			
 		}
+		
+	}
 	
 }
