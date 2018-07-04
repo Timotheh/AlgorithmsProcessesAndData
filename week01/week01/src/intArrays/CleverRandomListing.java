@@ -19,12 +19,12 @@ public class CleverRandomListing extends RandomListing
 
     protected void randomise()
     {
-        for(int x = 0; x < getArray().length; x++) 
+        for(int i = 0; i < getArray().length; i++) 
         {
-            int i = getRandomIndex(); 
-            int v = getArray() [x]; 
-            getArray() [x] = getArray() [i];
-            getArray() [i] = v;
+            int randomIndex = getRandomIndex(); 
+            int array = getArray() [i]; 
+            getArray() [i] = getArray() [randomIndex];
+            getArray() [randomIndex] = array;
         }
     }
 
